@@ -12,14 +12,15 @@ interface TailorResult {
 export default function ResumeTailor() {
   const { resumes } = useResumes()
   const { jobs } = useJobs()
+
   const [selectedResumeId, setSelectedResumeId] = useState('')
   const [selectedJobId, setSelectedJobId] = useState('')
   const [result, setResult] = useState<TailorResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const selectedResume = resumes.find((r) => r.id === selectedResumeId)
-  const selectedJob = jobs.find((j) => j.id === selectedJobId)
+  const selectedResume = resumes.find((r) => String(r.id) === selectedResumeId)
+  const selectedJob = jobs.find((j) => String(j.id) === selectedJobId)
 
   async function handleTailor() {
     if (!selectedResume || !selectedJob?.job_description) return
