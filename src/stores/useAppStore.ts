@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { JobApplication, Resume } from '../types'
+import type { JobApplication, Resume } from '../types'
 
 interface AppState {
   // Data
