@@ -6,14 +6,7 @@ import SignupPage from './pages/SignupPage'
 import KanbanBoard from './components/kanban/KanbanBoard'
 import ResumesPage from './pages/ResumesPage'
 import AIPage from './pages/AIPage'
-
-function AnalyticsPage() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <h1 className="text-white text-2xl font-bold">Analytics — coming soon</h1>
-    </div>
-  )
-}
+import AnalyticsPage from './pages/AnalyticsPage'
 
 export default function App() {
   return (
