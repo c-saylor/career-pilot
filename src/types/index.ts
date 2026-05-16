@@ -18,7 +18,7 @@ export interface JobApplication {
   url: string
   status: ApplicationStatus
   notes: string
-  date_applied: string
+  date_applied: string | null
   job_description: string
   resume_id: string | null
 }
