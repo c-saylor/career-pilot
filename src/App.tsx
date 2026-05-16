@@ -4,15 +4,7 @@ import Layout from './components/Layout'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import KanbanBoard from './components/kanban/KanbanBoard'
-
-// Placeholder pages — we'll build these out later
-function ResumesPage() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <h1 className="text-white text-2xl font-bold">Resumes — coming soon</h1>
-    </div>
-  )
-}
+import ResumesPage from './pages/ResumesPage'
 
 function AIPage() {
   return (
