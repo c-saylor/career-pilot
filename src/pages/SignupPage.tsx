@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { signUp } from '../lib/auth'
 
 export default function SignupPage() {
@@ -7,7 +7,7 @@ export default function SignupPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
+  const navigate = useNavigate()
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -15,30 +15,12 @@ export default function SignupPage() {
     setError(null)
     try {
       await signUp(email, password)
-      setSuccess(true)
+      navigate('/login')
     } catch (err: any) {
       setError(err.message)
     } finally {
       setLoading(false)
     }
-  }
-
-  if (success) {
-    return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
-        <div className="bg-slate-800 p-8 rounded-xl w-full max-w-md border border-slate-700 text-center">
-          <div className="text-4xl mb-4">✉️</div>
-          <h1 className="text-2xl font-bold text-white mb-2">Check your email</h1>
-          <p className="text-slate-400 text-sm">
-            We sent a confirmation link to <span className="text-white">{email}</span>. 
-            Click it to activate your account then{' '}
-            <Link to="/login" className="text-blue-400 hover:text-blue-300">
-              sign in
-            </Link>.
-          </p>
-        </div>
-      </div>
-    )
   }
 
   return (
